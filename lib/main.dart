@@ -1,4 +1,8 @@
+import 'package:ecommerce/app/shared/components/default_button.dart';
 import 'package:flutter/material.dart';
+
+import 'app/shared/components/app_input.dart';
+import 'app/shared/consts/text_styles.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,56 +14,54 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.purple,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+  MyHomePage({Key? key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              "E-Commerce",
+              textAlign: TextAlign.center,
+              style: TextStyles.TITLE_TEXT_STYLE,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            SizedBox(height: 30),
+            AppInput(labelText: "Telefone", onChanged: null),
+            SizedBox(height: 20),
+            AppInput(labelText: "Senha", onChanged: null),
+            SizedBox(height: 60),
+            DefaultButton(
+              text: "Fazer login",
+              onPressed: teste,
+              height: 28,
+              isLoading: false,
+              color: Colors.purple,
+              isFloating: true,
+              width: 220,
+            )
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), 
     );
+  }
+
+  teste() {
+    return;
   }
 }
