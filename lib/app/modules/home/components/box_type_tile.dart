@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 class BoxTypeTile extends StatelessWidget {
   final String title;
   final String photo;
-  final onTap;
+  final Function() onTap;
   const BoxTypeTile(
-      {Key? key, required this.title, required this.photo, this.onTap})
+      {Key? key, required this.title, required this.photo, required this.onTap})
       : super(key: key);
 
   @override
