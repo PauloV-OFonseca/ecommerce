@@ -1,5 +1,5 @@
 import 'package:brasil_fields/brasil_fields.dart';
-import 'package:ecommerce/app/data/modules/login/controllers/login_controller.dart';
+import 'package:ecommerce/app/modules/login/controllers/login_controller.dart';
 import 'package:ecommerce/app/shared/components/app_input.dart';
 import 'package:ecommerce/app/shared/components/default_button.dart';
 import 'package:ecommerce/app/shared/consts/text_styles.dart';

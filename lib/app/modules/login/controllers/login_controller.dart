@@ -1,4 +1,5 @@
 import 'package:brasil_fields/brasil_fields.dart';
+import 'package:ecommerce/app/routes/app_pages.dart';
 import 'package:ecommerce/app/shared/components/default_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -34,7 +35,7 @@ class LoginController extends GetxController {
     if (!validateNumber || !validatePassword)
       callDialog(Get.context);
     else
-      print("Salve");
+      Get.offAllNamed(Routes.HOME);
   }
 
   callDialog(context) async {

@@ -1,4 +1,5 @@
-import 'package:ecommerce/app/data/modules/login/controllers/login_controller.dart';
+import 'package:ecommerce/app/modules/login/controllers/login_controller.dart';
+import 'package:ecommerce/app/modules/home/controllers/home_controller.dart';
 import 'package:get/get.dart';
 
 class Binding extends Bindings {
@@ -6,6 +7,10 @@ class Binding extends Bindings {
   void dependencies() {
     Get.lazyPut<LoginController>(
       () => LoginController(),
+      fenix: true,
+    );
+    Get.lazyPut<HomeController>(
+      () => HomeController(),
       fenix: true,
     );
   }
