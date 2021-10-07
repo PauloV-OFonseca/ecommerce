@@ -17,28 +17,48 @@ class FruitStoreView extends GetView<FruitStoreController> {
             FruitTile(
               title: 'Maçã',
               photo: AssetsPaths.APPLE,
-              onTap: () {},
+              fruitQuantity: controller.appleQuantity,
+              setAdd: ()=>controller
+                  .setAppleQuantity(controller.appleQuantity.value + 1),
+              setSubtract: ()=>controller
+                  .setAppleQuantity(controller.appleQuantity.value - 1 ),
             ),
             FruitTile(
-            title: 'Pêra',
-            photo: AssetsPaths.PEAR,
-            onTap: () {},
-          ),
-          FruitTile(
-            title: 'Banana',
-            photo: AssetsPaths.BANANA,
-            onTap: () {},
-          ),
-          FruitTile(
-            title: 'Pineapple',
-            photo: AssetsPaths.PINEAPPLE,
-            onTap: () {},
-          ),
-          FruitTile(
-            title: 'Manga',
-            photo: AssetsPaths.MANGO,
-            onTap: () {},
-          ),
+              title: 'Pêra',
+              photo: AssetsPaths.PEAR,
+              fruitQuantity: controller.pearQuantity,
+              setAdd: ()=>controller
+                  .setPearQuantity(controller.pearQuantity.value + 1),
+              setSubtract: ()=>controller
+                  .setPearQuantity(controller.pearQuantity.value - 1 ),
+            ),
+            FruitTile(
+              title: 'Banana',
+              photo: AssetsPaths.BANANA,
+              fruitQuantity: controller.bananaQuantity,
+              setAdd: ()=>controller
+                  .setBananaQuantity(controller.bananaQuantity.value + 1),
+              setSubtract: ()=>controller
+                  .setBananaQuantity(controller.bananaQuantity.value - 1 ),
+            ),
+            FruitTile(
+              title: 'Pineapple',
+              photo: AssetsPaths.PINEAPPLE,
+              fruitQuantity: controller.pineappleQuantity,
+              setAdd: ()=>controller
+                  .setPineappleQuantity(controller.pineappleQuantity.value + 1),
+              setSubtract: ()=>controller
+                  .setPineappleQuantity(controller.pineappleQuantity.value - 1 ),
+            ),
+            FruitTile(
+              title: 'Manga',
+              photo: AssetsPaths.MANGO,
+              fruitQuantity: controller.mangoQuantity,
+              setAdd: ()=>controller
+                  .setMangoQuantity(controller.mangoQuantity.value + 1),
+              setSubtract: ()=>controller
+                  .setMangoQuantity(controller.mangoQuantity.value - 1 ),
+            ),
           ],
         ),
       ),
