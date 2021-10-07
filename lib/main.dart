@@ -1,11 +1,15 @@
-import 'package:ecommerce/app/data/login/views/login_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'app/data/routes/app_pages.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    MaterialApp(
+    GetMaterialApp(
       theme: ThemeData(primarySwatch: Colors.purple),
-      home: LoginView(),
+      initialRoute: AppPages.INITIAL,
+      getPages: AppPages.routes,
     ),
   );
 }
