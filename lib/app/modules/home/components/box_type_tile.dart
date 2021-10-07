@@ -5,9 +5,12 @@ class BoxTypeTile extends StatelessWidget {
   final String title;
   final String photo;
   final Function() onTap;
-  const BoxTypeTile(
-      {Key? key, required this.title, required this.photo, required this.onTap})
-      : super(key: key);
+  const BoxTypeTile({
+    Key? key,
+    required this.title,
+    required this.photo,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
