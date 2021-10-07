@@ -1,4 +1,4 @@
-import 'package:ecommerce/app/data/login/controllers/login_controller.dart';
+import 'package:ecommerce/app/data/modules/login/controllers/login_controller.dart';
 import 'package:get/get.dart';
 
 class Binding extends Bindings {
