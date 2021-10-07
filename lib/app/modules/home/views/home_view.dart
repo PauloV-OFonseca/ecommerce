@@ -1,3 +1,4 @@
+import 'package:ecommerce/app/modules/home/components/box_type_tile.dart';
 import 'package:ecommerce/app/modules/home/controllers/home_controller.dart';
 import 'package:ecommerce/app/shared/consts/text_styles.dart';
 import 'package:flutter/material.dart';
@@ -27,26 +28,14 @@ class HomeView extends GetView<HomeController> {
             SizedBox(height: 10),
             Center(
               child: Text(
-                "Seja bem vindo(a)",
+                "Seja bem vindo(a), escolha uma das opções",
                 style: TextStyles.WELCOME_TEXT_STYLE,
               ),
             ),
-            SizedBox(height: 20),
-            Container(
-              height: 65,
-              width: 328,
-              margin: EdgeInsets.all(15.0),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.blueGrey.shade300),
-                borderRadius: BorderRadius.all(Radius.circular(5)),
-              ),
-              child: Center(
-                child: Text(
-                  'Frutas',
-                  style: TextStyles.BOX_TYPE_TEXT_STYLE,
-                ),
-              ),
-            )
+            SizedBox(height: 30),
+            BoxTypeTile(title: "Frutas"),
+            BoxTypeTile(title: "Remédios"),
+            BoxTypeTile(title: "Informática"),
           ],
         ),
       ),
