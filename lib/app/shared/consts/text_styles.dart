@@ -18,4 +18,22 @@ class TextStyles {
     fontStyle: FontStyle.normal,
     fontSize: 14,
   );
+
+  // ignore: non_constant_identifier_names
+  static final ALERT_DIALOG_TITLE_TEXT_STYLE = TextStyle(
+    fontFamily: 'Rubik',
+    color: Colors.black,
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    fontStyle: FontStyle.normal,
+  );
+
+  // ignore: non_constant_identifier_names
+  static final ALERT_DIALOG_CONTENT_TEXT_STYLE = TextStyle(
+    fontFamily: 'inter',
+    color: Colors.black,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+  );
 }

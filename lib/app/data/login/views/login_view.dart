@@ -35,14 +35,14 @@ class LoginView extends GetView<LoginController> {
             AppInput(
               labelText: "Senha",
               onChanged: controller.setPassword,
-              controller: null,
+              controller: controller.passwordController,
               keyboardType: TextInputType.phone,
               obscure: true,
             ),
             SizedBox(height: 60),
             DefaultButton(
               text: "Fazer login",
-              onPressed: teste,
+              onPressed: controller.handleNavigate,
               isLoading: false,
             )
           ],
@@ -51,7 +51,4 @@ class LoginView extends GetView<LoginController> {
     );
   }
 
-  teste() {
-    return;
-  }
 }
