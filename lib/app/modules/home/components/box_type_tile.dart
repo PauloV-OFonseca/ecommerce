@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 
 class BoxTypeTile extends StatelessWidget {
   final String title;
-  final photo;
+  final String photo;
   final onTap;
-  const BoxTypeTile({Key? key, required this.title, this.photo, this.onTap})
+  const BoxTypeTile(
+      {Key? key, required this.title, required this.photo, this.onTap})
       : super(key: key);
 
   @override
@@ -21,12 +22,25 @@ class BoxTypeTile extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Text(
-            title,
-            style: TextStyles.BOX_TYPE_TEXT_STYLE,
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage(photo),
+              ),
+              borderRadius: BorderRadius.all(Radius.circular(30)),
+            ),
           ),
+          //Image.asset(photo, height: 50, width: 50),
+          SizedBox(width: 20),
+          Text(title, style: TextStyles.BOX_TYPE_TEXT_STYLE),
           Spacer(),
-          Icon(Icons.arrow_forward_ios)
+          GestureDetector(
+            onTap: onTap,
+            child: Icon(Icons.arrow_forward_ios),
+          ),
         ],
       ),
     );

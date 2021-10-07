@@ -1,5 +1,6 @@
 import 'package:ecommerce/app/modules/home/components/box_type_tile.dart';
 import 'package:ecommerce/app/modules/home/controllers/home_controller.dart';
+import 'package:ecommerce/app/shared/consts/assets_paths.dart';
 import 'package:ecommerce/app/shared/consts/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -33,9 +34,9 @@ class HomeView extends GetView<HomeController> {
               ),
             ),
             SizedBox(height: 30),
-            BoxTypeTile(title: "Frutas"),
-            BoxTypeTile(title: "Remédios"),
-            BoxTypeTile(title: "Informática"),
+            BoxTypeTile(title: "Frutas", photo: AssetsPaths.FRUIT_BASKET),
+            BoxTypeTile(title: "Remédios", photo: AssetsPaths.MEDICINES,),
+            BoxTypeTile(title: "Informática", photo: AssetsPaths.COMPUTING,),
           ],
         ),
       ),
