@@ -6,19 +6,20 @@ class DefaultButton extends StatelessWidget {
   final String text;
   final Function onPressed;
   final double height;
+  final double width;
   final bool isLoading;
   final Color color;
   final bool isFloating;
-  final double width;
+  
   const DefaultButton({
     Key? key,
     required this.text,
     required this.onPressed,
-    required this.height,
+    this.height = 28,
+    this.width = 220,
     required this.isLoading,
-    required this.color,
-    required this.isFloating,
-    required this.width,
+    this.color = Colors.purple,
+    this.isFloating = true,
   }) : super(key: key);
 
   @override
