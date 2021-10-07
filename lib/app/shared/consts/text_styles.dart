@@ -11,6 +11,13 @@ class TextStyles {
   );
 
   // ignore: non_constant_identifier_names
+  static final WELCOME_TEXT_STYLE = TITLE_TEXT_STYLE.copyWith(
+    color: Colors.black,
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+  );
+
+  // ignore: non_constant_identifier_names
   static final DEFAULT_BUTTON_STYLE = TextStyle(
     color: Colors.white,
     fontWeight: FontWeight.w600,
@@ -34,6 +41,15 @@ class TextStyles {
     color: Colors.black,
     fontSize: 12,
     fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+  );
+
+  // ignore: non_constant_identifier_names
+  static final BOX_TYPE_TEXT_STYLE = TextStyle(
+    fontFamily: 'inter',
+    color: Colors.black,
+    fontSize: 24,
+    fontWeight: FontWeight.w600,
     fontStyle: FontStyle.normal,
   );
 }
