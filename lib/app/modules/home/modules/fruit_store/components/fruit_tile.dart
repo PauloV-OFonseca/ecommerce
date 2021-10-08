@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/app/shared/components/default_circular_progress_indicator.dart';
 import 'package:ecommerce/app/shared/consts/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class FruitTile extends StatelessWidget {
   final String name;
@@ -18,25 +19,25 @@ class FruitTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 70,
-      width: 328,
-      margin: EdgeInsets.all(10),
-      padding: EdgeInsets.only(left: 15, right: 15),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.blueGrey.shade300),
-        borderRadius: BorderRadius.all(Radius.circular(5)),
-      ),
-      child: Row(
-        children: [
-          Container(
-            width: 50,
-            height: 50,
-            child: CachedNetworkImage(
-              imageUrl: photo,
-              fit: BoxFit.cover,
-              imageBuilder: (context, imageProvider) => Container(
-                decoration: BoxDecoration(
+    return Obx(() => Container(
+          height: 70,
+          width: 328,
+          margin: EdgeInsets.all(10),
+          padding: EdgeInsets.only(left: 15, right: 15),
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.blueGrey.shade300),
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+          ),
+          child: Row(
+            children: [
+              Container(
+                width: 50,
+                height: 50,
+                child: CachedNetworkImage(
+                  imageUrl: photo,
+                  fit: BoxFit.cover,
+                  imageBuilder: (context, imageProvider) => Container(
+                    decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
                     image: imageProvider,
@@ -49,16 +50,19 @@ class FruitTile extends StatelessWidget {
             ),
           ),
           SizedBox(width: 20),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(name, style: TextStyles.BOX_TYPE_TEXT_STYLE),
-              Text(
-                "Preço: $price",
-                style: TextStyles.BOX_TYPE_PRICE_STYLE,
-              ),
-            ],
+          Container(
+            width: 90,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(name, style: TextStyles.BOX_TYPE_TEXT_STYLE),
+                Text(
+                  "Preço: $price",
+                  style: TextStyles.BOX_TYPE_PRICE_STYLE,
+                ),
+              ],
+            ),
           ),
           Spacer(),
           Container(
@@ -70,8 +74,14 @@ class FruitTile extends StatelessWidget {
             ),
             child: Center(child: Text(fruitQuantity.toString())),
           ),
+          Spacer(),
+          GestureDetector(
+            onTap: (){},
+            child: Icon(Icons.add),
+          )
         ],
       ),
+    ),
     );
   }
 }

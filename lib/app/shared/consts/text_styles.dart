@@ -49,7 +49,7 @@ class TextStyles {
     fontFamily: 'inter',
     color: Colors.black,
     fontSize: 24,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w500,
     fontStyle: FontStyle.normal,
   );
 

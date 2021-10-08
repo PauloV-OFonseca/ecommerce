@@ -31,6 +31,6 @@ class FruitStoreView extends GetView<FruitStoreController> {
           name: fruit.name,
           price: fruit.price,
           photo: fruit.photo,
-          fruitQuantity: 0,
+          fruitQuantity: controller.handleQuantity(fruit.name),
         );
 }
