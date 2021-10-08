@@ -15,11 +15,11 @@ class FruitStoreView extends GetView<FruitStoreController> {
           child: Column(
             children: [
               ...controller.fruitItems
-                            .where((e) => e.name.contains(
-                                  controller.filterText.value,
-                                ))
-                            .map(fruitModelToTile)
-                            .toList(),
+                  .where((e) => e.name.contains(
+                        controller.filterText.value,
+                      ))
+                  .map(fruitModelToTile)
+                  .toList(),
             ],
           ),
         ),
@@ -28,9 +28,9 @@ class FruitStoreView extends GetView<FruitStoreController> {
   }
 
   fruitModelToTile(dynamic fruit) => FruitTile(
-          name: fruit.name,
-          price: fruit.price,
-          photo: fruit.photo,
-          fruitQuantity: controller.handleQuantity(fruit.name),
-        );
+        name: fruit.name,
+        price: fruit.price,
+        photo: fruit.photo,
+        fruitQuantity: controller.handleQuantity(fruit.name),
+      );
 }

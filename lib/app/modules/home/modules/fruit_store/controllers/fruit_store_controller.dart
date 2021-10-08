@@ -21,45 +21,20 @@ class FruitStoreController extends GetxController {
     getFruitItems();
   }
 
-  getFruitItems() => fruitItems = repository.getFruitItems();
+  List<ItemStoreModel> getFruitItems() => fruitItems = repository.getFruitItems();
 
   handleQuantity(String fruit) {
     switch (fruit.toLowerCase()) {
       case "maçã":
-        return appleQuantity.value;
+        return appleQuantity;
       case "pêra":
-        return pearQuantity.value;
+        return pearQuantity;
       case "banana":
-        return bananaQuantity.value;
+        return bananaQuantity;
       case "abacaxi":
-        return pineappleQuantity.value;
+        return pineappleQuantity;
       case "manga":
-        return mangoQuantity.value;
+        return mangoQuantity;
     }
-  }
-
-  setAppleQuantity(int value) {
-    if (validateQuantity(value)) appleQuantity.value = value;
-  }
-
-  setPearQuantity(int value) {
-    if (validateQuantity(value)) pearQuantity.value = value;
-  }
-
-  setBananaQuantity(int value) {
-    if (validateQuantity(value)) bananaQuantity.value = value;
-  }
-
-  setPineappleQuantity(int value) {
-    if (validateQuantity(value)) pineappleQuantity.value = value;
-  }
-
-  setMangoQuantity(int value) {
-    if (validateQuantity(value)) mangoQuantity.value = value;
-  }
-
-  bool validateQuantity(int value) {
-    if (value < 0) return false;
-    return true;
   }
 }
