@@ -23,14 +23,14 @@ class HomeView extends GetView<HomeController> {
       ),
       body: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             SizedBox(height: 10),
             Center(
               child: Text(
-                "Seja bem vindo(a), escolha uma das opções",
+                "Seja bem vindo(a).\nEscolha uma das opções:",
                 style: TextStyles.WELCOME_TEXT_STYLE,
+                textAlign: TextAlign.center,
               ),
             ),
             SizedBox(height: 30),
