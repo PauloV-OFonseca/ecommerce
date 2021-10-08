@@ -1,3 +1,4 @@
+import 'package:ecommerce/app/data/repositories/fruit_store_repository.dart';
 import 'package:ecommerce/app/modules/home/modules/fruit_store/controllers/fruit_store_controller.dart';
 import 'package:ecommerce/app/modules/login/controllers/login_controller.dart';
 import 'package:ecommerce/app/modules/home/controllers/home_controller.dart';
@@ -15,7 +16,11 @@ class Binding extends Bindings {
       fenix: true,
     );
     Get.lazyPut<FruitStoreController>(
-      () => FruitStoreController(),
+      () => FruitStoreController(Get.find<FruitStoreRepository>()),
+      fenix: true,
+    );
+    Get.lazyPut<FruitStoreRepository>(
+      () => FruitStoreRepository(),
       fenix: true,
     );
   }
