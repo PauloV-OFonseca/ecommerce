@@ -15,7 +15,7 @@ class DefaultButton extends StatelessWidget {
     Key? key,
     required this.text,
     required this.onPressed,
-    this.height = 28,
+    this.height = 38,
     this.width = 220,
     required this.isLoading,
     this.color = Colors.purple,
@@ -28,7 +28,7 @@ class DefaultButton extends StatelessWidget {
       duration: Duration(milliseconds: 250),
       child: Container(
         width: width,
-        height: 38,
+        height: height,
         child: ElevatedButton(
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.resolveWith(getColor),
