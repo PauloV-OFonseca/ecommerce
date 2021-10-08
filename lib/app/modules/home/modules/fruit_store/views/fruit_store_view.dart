@@ -1,5 +1,6 @@
 import 'package:ecommerce/app/modules/home/modules/fruit_store/components/fruit_tile.dart';
 import 'package:ecommerce/app/modules/home/modules/fruit_store/controllers/fruit_store_controller.dart';
+import 'package:ecommerce/app/shared/components/app_input.dart';
 import 'package:ecommerce/app/shared/components/default_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,29 +12,38 @@ class FruitStoreView extends GetView<FruitStoreController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Frutas")),
-      body: Padding(
-        padding: EdgeInsets.all(16),
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  ...controller.fruitItems
-                      .where((e) => e.name.contains(
-                            controller.filterText.value,
-                          ))
-                      .map(fruitModelToTile)
-                      .toList(),
-                ],
+      body: Obx(
+        () => Padding(
+          padding: EdgeInsets.all(16),
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              SingleChildScrollView(
+                child: Column(
+                  children: [
+                    AppInput(
+                      controller: controller.filterController,
+                      labelText: "Insira o nome da fruta desejada",
+                      onChanged: controller.setFilterText,
+                      height: 30,
+                      width: 328,
+                      horizontalMargin: 5,
+                    ),
+                    SizedBox(height: 10),
+                    ...controller.fruitItems
+                        .where((e) => e.name.contains(
+                              controller.filterText.value,
+                            ))
+                        .map(fruitModelToTile)
+                        .toList(),
+                  ],
+                ),
               ),
-            ),
-            Obx(
-              () => controller.canGoToShoppingCart
+              controller.canGoToShoppingCart
                   ? Positioned(
                       child: DefaultButton(
                         width: 328,
-                        height: 50,
+                        height: 40,
                         text: "Acessar o carrinho",
                         onPressed: () {},
                         isLoading: false,
@@ -41,8 +51,8 @@ class FruitStoreView extends GetView<FruitStoreController> {
                       bottom: 0,
                     )
                   : Container(),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
