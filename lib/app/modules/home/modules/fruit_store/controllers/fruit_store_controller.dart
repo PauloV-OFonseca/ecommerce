@@ -11,6 +11,7 @@ class FruitStoreController extends GetxController {
   RxInt pineappleQuantity = 0.obs;
   RxInt mangoQuantity = 0.obs;
   List<ItemStoreModel> fruitItems = [];
+  final filterText = "".obs;
 
   FruitStoreController(this.repository);
 

@@ -1,26 +1,22 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerce/app/shared/components/default_circular_progress_indicator.dart';
 import 'package:ecommerce/app/shared/consts/text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class FruitTile extends StatelessWidget {
-  final String title;
+  final String name;
   final String photo;
   final fruitQuantity;
-  final Function() setSubtract;
-  final Function() setAdd;
   const FruitTile({
     Key? key,
-    required this.title,
+    required this.name,
     required this.photo,
     this.fruitQuantity,
-    required this.setSubtract,
-    required this.setAdd,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => Container(
+    return Container(
         height: 65,
         width: 328,
         margin: EdgeInsets.all(10),
@@ -34,21 +30,26 @@ class FruitTile extends StatelessWidget {
             Container(
               width: 50,
               height: 50,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage(photo),
+              child: CachedNetworkImage(
+                    imageUrl: photo,
+                    fit: BoxFit.cover,
+                    imageBuilder: (context, imageProvider) => Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: imageProvider,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    placeholder: (context, url) =>
+                        DefaultCircularProgressIndicator(),
+                    errorWidget: (context, url, error) => Container(),
+                  ),
                 ),
-                borderRadius: BorderRadius.all(Radius.circular(30)),
-              ),
-            ),
             SizedBox(width: 20),
-            Text(title, style: TextStyles.BOX_TYPE_TEXT_STYLE),
+            Text(name, style: TextStyles.BOX_TYPE_TEXT_STYLE),
             Spacer(),
-            GestureDetector(
-              child: Icon(Icons.horizontal_rule_rounded, size: 20),
-              onTap: setSubtract,
-            ),
             Container(
               height: 30,
               width: 30,
@@ -58,13 +59,8 @@ class FruitTile extends StatelessWidget {
               ),
               child: Center(child: Text(fruitQuantity.toString())),
             ),
-            GestureDetector(
-              child: Icon(Icons.add, size: 20),
-              onTap: setAdd,
-            ),
           ],
         ),
-      ),
     );
   }
 }
