@@ -52,4 +52,13 @@ class TextStyles {
     fontWeight: FontWeight.w600,
     fontStyle: FontStyle.normal,
   );
+
+  // ignore: non_constant_identifier_names
+  static final BOX_TYPE_PRICE_STYLE = TextStyle(
+    fontFamily: 'inter',
+    color: Colors.black,
+    fontSize: 12,
+    fontWeight: FontWeight.w300,
+    fontStyle: FontStyle.normal,
+  );
 }

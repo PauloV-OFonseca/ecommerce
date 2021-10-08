@@ -29,6 +29,7 @@ class FruitStoreView extends GetView<FruitStoreController> {
 
   fruitModelToTile(dynamic fruit) => FruitTile(
           name: fruit.name,
+          price: fruit.price,
           photo: fruit.photo,
           fruitQuantity: 0,
         );
