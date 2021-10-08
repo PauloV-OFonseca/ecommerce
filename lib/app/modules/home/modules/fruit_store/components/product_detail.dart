@@ -90,7 +90,9 @@ class ProductDetail extends StatelessWidget {
     );
   }
 
-  setSubtract() => quantity.value--;
+  setSubtract() {
+    if (quantity.value != 0) quantity.value--;
+  }
 
   setadd() => quantity.value++;
 }

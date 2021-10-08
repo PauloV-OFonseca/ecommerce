@@ -21,7 +21,8 @@ class FruitStoreController extends GetxController {
     getFruitItems();
   }
 
-  List<ItemStoreModel> getFruitItems() => fruitItems = repository.getFruitItems();
+  List<ItemStoreModel> getFruitItems() =>
+      fruitItems = repository.getFruitItems();
 
   handleQuantity(String fruit) {
     switch (fruit.toLowerCase()) {
@@ -36,5 +37,14 @@ class FruitStoreController extends GetxController {
       case "manga":
         return mangoQuantity;
     }
+  }
+
+  bool get canGoToShoppingCart {
+    if (appleQuantity.value != 0 ||
+        pearQuantity.value != 0 ||
+        bananaQuantity.value != 0 ||
+        pineappleQuantity.value != 0 ||
+        mangoQuantity.value != 0) return true;
+    return false;
   }
 }
