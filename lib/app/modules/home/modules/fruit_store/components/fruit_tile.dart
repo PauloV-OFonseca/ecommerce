@@ -42,7 +42,6 @@ class FruitTile extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(30)),
               ),
             ),
-            //Image.asset(photo, height: 50, width: 50),
             SizedBox(width: 20),
             Text(title, style: TextStyles.BOX_TYPE_TEXT_STYLE),
             Spacer(),
