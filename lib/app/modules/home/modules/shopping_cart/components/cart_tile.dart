@@ -46,7 +46,6 @@ class CartTile extends StatelessWidget {
             ),
           ),
           Spacer(),
-          GestureDetector(onTap: () {}, child: Icon(Icons.delete)),
         ],
       ),
     );
