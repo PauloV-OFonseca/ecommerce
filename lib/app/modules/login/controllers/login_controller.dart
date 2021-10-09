@@ -1,28 +1,25 @@
-import 'package:brasil_fields/brasil_fields.dart';
 import 'package:ecommerce/app/routes/app_pages.dart';
 import 'package:ecommerce/app/shared/components/default_alert.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  final phoneNumber = "".obs;
-  final password = "".obs;
+  TextEditingController emailController = TextEditingController(text: "teste@gmail.com");
+  TextEditingController passwordController = TextEditingController(text: "123456");
+  final email = "teste@gmail.com".obs;
+  final password = "123456".obs;
 
   @override
   onInit() {
     super.onInit();
   }
 
-  setPhone(String phone) => this.phoneNumber.value = phone;
+  setEmail(String email) => this.email.value = email;
   setPassword(String password) => this.password.value = password;
 
-  bool get validateNumber {
-    if (phoneNumber.isNotEmpty)
-      return UtilBrasilFields.obterTelefone(phoneNumber.value, mascara: false)
-              .length ==
-          10;
+  bool get validateEmail {
+    if (email.isNotEmpty) return true;
     return false;
   }
 
@@ -32,10 +29,18 @@ class LoginController extends GetxController {
   }
 
   handleNavigate() {
-    if (!validateNumber || !validatePassword)
+    FirebaseAuth auth = FirebaseAuth.instance;
+
+    if (!validateEmail || !validatePassword)
       callDialog(Get.context);
-    else
-      Get.offAllNamed(Routes.HOME);
+    else {
+      auth
+          .signInWithEmailAndPassword(
+              email: email.value, password: password.value)
+          .then((firebaseUser) {
+        Get.offAllNamed(Routes.HOME);
+      });
+    }
   }
 
   callDialog(context) async {
