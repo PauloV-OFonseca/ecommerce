@@ -1,6 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/app/modules/home/modules/fruit_store/components/product_detail.dart';
-import 'package:ecommerce/app/shared/components/default_circular_progress_indicator.dart';
+import 'package:ecommerce/app/shared/components/default_circle_network_image.dart';
 import 'package:ecommerce/app/shared/consts/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,26 +31,7 @@ class FruitTile extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Container(
-              width: 50,
-              height: 50,
-              child: CachedNetworkImage(
-                imageUrl: photo,
-                fit: BoxFit.cover,
-                imageBuilder: (context, imageProvider) => Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: imageProvider,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                placeholder: (context, url) =>
-                    DefaultCircularProgressIndicator(),
-                errorWidget: (context, url, error) => Container(),
-              ),
-            ),
+            DefaultCircleNetworkImage(photo: photo),
             SizedBox(width: 20),
             Container(
               width: 90,
