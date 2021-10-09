@@ -17,7 +17,7 @@ class ShoppingCartController extends GetxController {
       double subPrice = element.fruitItem.price * element.quantity.value;
       totalPrice += subPrice;
       receipt = receipt +
-          "Código: ${element.fruitItem.id} -- ${element.fruitItem.name} -- Subpreço: R\$ $subPrice\n\n";
+          "Código: ${element.fruitItem.id} -- ${element.fruitItem.name} -- Quantidade: ${element.quantity} un. -- Subpreço: R\$ $subPrice\n\n";
     });
 
     receipt = receipt +
