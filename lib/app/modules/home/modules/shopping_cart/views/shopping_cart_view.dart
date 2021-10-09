@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:ecommerce/app/modules/home/modules/shopping_cart/components/cart_tile.dart';
 import 'package:ecommerce/app/modules/home/modules/shopping_cart/controllers/shopping_cart_controller.dart';
 import 'package:ecommerce/app/shared/components/default_button.dart';
@@ -32,7 +33,7 @@ class ShoppingCartView extends GetView<ShoppingCartController> {
                   width: 320,
                   height: 50,
                   text: "Finalizar compra",
-                  onPressed: () {},
+                  onPressed: () => controller.shoppingToPDF(),
                   isLoading: false,
                 ),
               ),
