@@ -11,26 +11,34 @@ class ShoppingCartView extends GetView<ShoppingCartController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Carrinho")),
-      body: Padding(
-        padding: EdgeInsets.all(16),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              ...controller.store.shoppingCartModel.item
-                  .map(fruitModelToTile)
-                  .toList(),
-              Align(
+      body: Container(
+        color: Colors.white,
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  ...controller.store.shoppingCartModel.item
+                      .map(fruitModelToTile)
+                      .toList(),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Align(
                 alignment: Alignment.bottomCenter,
                 child: DefaultButton(
                   width: 320,
-                  height: 40,
+                  height: 50,
                   text: "Finalizar compra",
                   onPressed: () {},
                   isLoading: false,
                 ),
               ),
-            ],
-          ),
+            ),
+            SizedBox(height: 10),
+          ],
         ),
       ),
     );
