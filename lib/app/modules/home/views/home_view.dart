@@ -17,7 +17,7 @@ class HomeView extends GetView<HomeController> {
           IconButton(
             icon: Icon(Icons.shopping_basket),
             tooltip: 'Acessa o carrinho de compras',
-            onPressed: () {},
+            onPressed: () => controller.navigateToShoppingCart(),
           ),
         ],
       ),

@@ -4,4 +4,5 @@ import 'package:get/get.dart';
 class HomeController extends GetxController {
 
   navigateToFruitStore() => Get.toNamed(Routes.FRUIT_STORE);
+  navigateToShoppingCart() => Get.toNamed(Routes.SHOPPING_CART);
 }
