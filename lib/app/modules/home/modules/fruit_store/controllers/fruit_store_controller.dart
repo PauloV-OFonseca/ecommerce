@@ -41,9 +41,10 @@ class FruitStoreController extends GetxController {
   }
 
   setShoppingCart() {
-    fruitItems.forEach((element) {
-      if (element.quantity.value != 0) {
-        store.shoppingCartModel.item.add(element);
+    store.shoppingCartModel.item = [];
+    fruitItems.forEach((fruitToCart) {
+      if (fruitToCart.quantity.value != 0) {
+        store.shoppingCartModel.item.add(fruitToCart);
       }
     });
   }
