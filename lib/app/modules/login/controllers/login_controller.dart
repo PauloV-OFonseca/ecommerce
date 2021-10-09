@@ -5,10 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
-  TextEditingController emailController = TextEditingController(text: "teste@gmail.com");
-  TextEditingController passwordController = TextEditingController(text: "123456");
+  TextEditingController emailController =
+      TextEditingController(text: "teste@gmail.com");
+  TextEditingController passwordController =
+      TextEditingController(text: "123456");
   final email = "teste@gmail.com".obs;
   final password = "123456".obs;
+  final isLoading = false.obs;
 
   @override
   onInit() {
@@ -17,6 +20,7 @@ class LoginController extends GetxController {
 
   setEmail(String email) => this.email.value = email;
   setPassword(String password) => this.password.value = password;
+  setIsLoading(bool loading) => this.isLoading.value = loading;
 
   bool get validateEmail {
     if (email.isNotEmpty) return true;
@@ -34,10 +38,12 @@ class LoginController extends GetxController {
     if (!validateEmail || !validatePassword)
       callDialog(Get.context);
     else {
+      setIsLoading(true);
       auth
           .signInWithEmailAndPassword(
               email: email.value, password: password.value)
           .then((firebaseUser) {
+        setIsLoading(false);
         Get.offAllNamed(Routes.HOME);
       });
     }

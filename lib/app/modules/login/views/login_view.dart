@@ -35,11 +35,13 @@ class LoginView extends GetView<LoginController> {
               obscure: true,
             ),
             SizedBox(height: 60),
-            DefaultButton(
-              text: "Fazer login",
-              onPressed: controller.handleNavigate,
-              isLoading: false,
-            )
+            Obx(
+              () => DefaultButton(
+                text: "Fazer login",
+                onPressed: controller.handleNavigate,
+                isLoading: controller.isLoading.value,
+              ),
+            ),
           ],
         ),
       ),
