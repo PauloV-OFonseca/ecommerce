@@ -45,7 +45,7 @@ class FruitStoreView extends GetView<FruitStoreController> {
                         width: 328,
                         height: 40,
                         text: "Acessar o carrinho",
-                        onPressed: () {},
+                        onPressed: () => handleGoToShoppingCart(),
                         isLoading: false,
                       ),
                       bottom: 0,
@@ -64,4 +64,9 @@ class FruitStoreView extends GetView<FruitStoreController> {
         photo: fruit.photo,
         fruitQuantity: controller.handleQuantity(fruit.name),
       );
+
+  handleGoToShoppingCart() {
+    controller.setShoppingCart();
+    controller.navigateToShoppingCart();
+  }
 }
