@@ -1,4 +1,5 @@
 import 'package:ecommerce/app/data/stores/shopping_cart_store.dart';
+import 'package:ecommerce/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 import 'package:path_provider/path_provider.dart';
@@ -44,4 +45,6 @@ class ShoppingCartController extends GetxController {
     final file = File("$output/teste.pdf");
     await file.writeAsBytes(document.save());
   }
+
+  navigateToHome() => Get.offNamedUntil(Routes.HOME, (route) => false);
 }

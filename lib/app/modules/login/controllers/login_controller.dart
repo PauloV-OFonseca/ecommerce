@@ -32,9 +32,9 @@ class LoginController extends GetxController {
   }
 
   handleNavigate() {
-    if (!validateNumber || !validatePassword)
-      callDialog(Get.context);
-    else
+    // if (!validateNumber || !validatePassword)
+    //   callDialog(Get.context);
+    // else
       Get.offAllNamed(Routes.HOME);
   }
 
