@@ -32,7 +32,7 @@ class ShoppingCartView extends GetView<ShoppingCartController> {
                   width: 320,
                   height: 50,
                   text: "Finalizar compra",
-                  onPressed: () => handlecheckout(),
+                  onPressed: () => handlecheckout(context),
                   isLoading: false,
                 ),
               ),
@@ -51,8 +51,8 @@ class ShoppingCartView extends GetView<ShoppingCartController> {
         fruitQuantity: fruit.quantity,
       );
 
-  handlecheckout() {
+  handlecheckout(context) {
     controller.shoppingToPDF();
-    controller.navigateToHome();
+    controller.navigateToHome(context);
   }
 }

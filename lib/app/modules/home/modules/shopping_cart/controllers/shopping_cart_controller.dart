@@ -1,5 +1,6 @@
 import 'package:ecommerce/app/data/stores/shopping_cart_store.dart';
 import 'package:ecommerce/app/routes/app_pages.dart';
+import 'package:ecommerce/app/shared/components/default_alert.dart';
 import 'package:get/get.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 import 'package:path_provider/path_provider.dart';
@@ -42,9 +43,22 @@ class ShoppingCartController extends GetxController {
         Offset(page.getClientSize().width, layoutResult.bounds.bottom + 10));
 
     final output = (await getExternalStorageDirectory())?.path;
-    final file = File("$output/teste.pdf");
+    final file = File("$output/comprovante.pdf");
     await file.writeAsBytes(document.save());
   }
 
-  navigateToHome() => Get.offNamedUntil(Routes.HOME, (route) => false);
+  navigateToHome(context) async {
+    final path = (await getExternalStorageDirectory())?.path;
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return DefaultAlert(
+          title: "Compra finalizada",
+          content:
+              "O comprovante da compra foi enviado para seu diretório: $path",
+        );
+      },
+    );
+    Get.offNamedUntil(Routes.HOME, (route) => false);
+  }
 }
