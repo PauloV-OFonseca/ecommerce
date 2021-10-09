@@ -55,7 +55,7 @@ class ShoppingCartController extends GetxController {
         return DefaultAlert(
           title: "Compra finalizada",
           content:
-              "O comprovante da compra foi enviado para seu diretório: $path",
+              "O comprovante da compra foi enviado para o diretório: $path",
         );
       },
     );

@@ -31,8 +31,8 @@ class FruitStoreView extends GetView<FruitStoreController> {
                     ),
                     SizedBox(height: 10),
                     ...controller.fruitItems
-                        .where((e) => e.fruitItem.name.contains(
-                              controller.filterText.value,
+                        .where((e) => e.fruitItem.name.toLowerCase().contains(
+                              controller.filterText.value.toLowerCase(),
                             ))
                         .map(fruitModelToTile)
                         .toList(),
