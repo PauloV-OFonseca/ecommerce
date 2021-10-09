@@ -2,6 +2,7 @@ import 'package:ecommerce/app/data/repositories/fruit_store_repository.dart';
 import 'package:ecommerce/app/data/stores/shopping_cart_store.dart';
 import 'package:ecommerce/app/modules/home/models/shopping_cart_model.dart';
 import 'package:ecommerce/app/modules/home/modules/fruit_store/models/item_store_model.dart';
+import 'package:ecommerce/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -47,7 +48,5 @@ class FruitStoreController extends GetxController {
     });
   }
 
-  navigateToShoppingCart() {
-    //Get.toNamed(page);
-  }
+  navigateToShoppingCart() => Get.toNamed(Routes.SHOPPING_CART);
 }
