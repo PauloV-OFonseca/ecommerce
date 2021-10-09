@@ -19,24 +19,35 @@ class ShoppingCartView extends GetView<ShoppingCartController> {
               padding: EdgeInsets.all(16),
               child: Column(
                 children: [
-                  ...controller.store.shoppingCartModel.item
-                      .map(fruitModelToTile)
-                      .toList(),
+                  if (controller.store.shoppingCartModel.item.isNotEmpty) ...[
+                    ...controller.store.shoppingCartModel.item
+                        .map(fruitModelToTile)
+                        .toList(),
+                  ] else ...[
+                    SizedBox(height: 200),
+                    Center(
+                      child: Text(
+                        "Carrinho vazio :(\nTente fazer algumas compras.",
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ]
                 ],
               ),
             ),
-            Expanded(
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: DefaultButton(
-                  width: 320,
-                  height: 50,
-                  text: "Finalizar compra",
-                  onPressed: () => handlecheckout(context),
-                  isLoading: false,
+            if (controller.store.shoppingCartModel.item.isNotEmpty)
+              Expanded(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: DefaultButton(
+                    width: 320,
+                    height: 50,
+                    text: "Finalizar compra",
+                    onPressed: () => handlecheckout(context),
+                    isLoading: false,
+                  ),
                 ),
               ),
-            ),
             SizedBox(height: 10),
           ],
         ),
