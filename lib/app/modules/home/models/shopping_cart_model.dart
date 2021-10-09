@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:ecommerce/app/modules/home/modules/fruit_store/models/item_store_model.dart';
+import 'package:get/get.dart';
 
 ShoppingCartModel shoppingCartModelFromJson(String str) => ShoppingCartModel.fromJson(json.decode(str));
 
@@ -29,7 +30,7 @@ class Item {
     });
 
     ItemStoreModel fruitItem;
-    int quantity;
+    RxInt quantity;
 
     factory Item.fromJson(Map<String, dynamic> json) => Item(
         fruitItem: ItemStoreModel.fromJson(json["fruitItem"]),
@@ -38,6 +39,6 @@ class Item {
 
     Map<String, dynamic> toJson() => {
         "fruitItem": fruitItem.toJson(),
-        "quantity": quantity,
+        "quantity": quantity.value,
     };
 }

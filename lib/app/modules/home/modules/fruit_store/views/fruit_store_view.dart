@@ -31,7 +31,7 @@ class FruitStoreView extends GetView<FruitStoreController> {
                     ),
                     SizedBox(height: 10),
                     ...controller.fruitItems
-                        .where((e) => e.name.contains(
+                        .where((e) => e.fruitItem.name.contains(
                               controller.filterText.value,
                             ))
                         .map(fruitModelToTile)
@@ -59,10 +59,10 @@ class FruitStoreView extends GetView<FruitStoreController> {
   }
 
   fruitModelToTile(dynamic fruit) => FruitTile(
-        name: fruit.name,
-        price: fruit.price,
-        photo: fruit.photo,
-        fruitQuantity: controller.handleQuantity(fruit.name),
+        name: fruit.fruitItem.name,
+        price: fruit.fruitItem.price,
+        photo: fruit.fruitItem.photo,
+        fruitQuantity: fruit.quantity,
       );
 
   handleGoToShoppingCart() {
