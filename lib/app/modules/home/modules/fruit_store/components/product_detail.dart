@@ -4,6 +4,7 @@ import 'package:ecommerce/app/shared/components/default_circular_progress_indica
 import 'package:ecommerce/app/shared/consts/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductDetail extends StatelessWidget {
   final String name;
@@ -19,7 +20,7 @@ class ProductDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 328,
+      width: 328.w,
       child: AlertDialog(
         title: Center(
           child: Text(
@@ -32,8 +33,8 @@ class ProductDetail extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              width: 50,
-              height: 50,
+              width: 50.w,
+              height: 50.h,
               child: CachedNetworkImage(
                 imageUrl: photo,
                 fit: BoxFit.cover,
@@ -51,7 +52,7 @@ class ProductDetail extends StatelessWidget {
                 errorWidget: (context, url, error) => Container(),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -62,9 +63,9 @@ class ProductDetail extends StatelessWidget {
                 SizedBox(width: 10),
                 Obx(
                   () => Container(
-                    height: 30,
-                    width: 30,
-                    margin: EdgeInsets.all(5),
+                    height: 30.h,
+                    width: 30.w,
+                    margin: EdgeInsets.all(5.w),
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.blueGrey.shade300),
                     ),
@@ -78,7 +79,7 @@ class ProductDetail extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 10.h),
             DefaultButton(
               text: "Concluído",
               onPressed: Get.back,

@@ -5,6 +5,7 @@ import 'package:ecommerce/app/shared/consts/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginView extends GetView<LoginController> {
   @override
@@ -19,14 +20,14 @@ class LoginView extends GetView<LoginController> {
               textAlign: TextAlign.center,
               style: TextStyles.TITLE_TEXT_STYLE,
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 30.h),
             AppInput(
               labelText: "Telefone",
               onChanged: controller.setEmail,
               controller: controller.emailController,
               keyboardType: TextInputType.emailAddress,
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
             AppInput(
               labelText: "Senha",
               onChanged: controller.setPassword,
@@ -34,7 +35,7 @@ class LoginView extends GetView<LoginController> {
               keyboardType: TextInputType.phone,
               obscure: true,
             ),
-            SizedBox(height: 60),
+            SizedBox(height: 60.h),
             Obx(
               () => DefaultButton(
                 text: "Fazer login",

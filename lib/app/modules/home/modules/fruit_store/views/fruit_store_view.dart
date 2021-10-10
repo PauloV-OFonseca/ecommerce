@@ -4,6 +4,7 @@ import 'package:ecommerce/app/shared/components/app_input.dart';
 import 'package:ecommerce/app/shared/components/default_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FruitStoreView extends GetView<FruitStoreController> {
   const FruitStoreView({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class FruitStoreView extends GetView<FruitStoreController> {
       appBar: AppBar(title: Text("Frutas")),
       body: Obx(
         () => Padding(
-          padding: EdgeInsets.all(16),
+          padding: EdgeInsets.all(16.w),
           child: Stack(
             fit: StackFit.expand,
             children: [
@@ -25,11 +26,11 @@ class FruitStoreView extends GetView<FruitStoreController> {
                       controller: controller.filterController,
                       labelText: "Insira o nome da fruta desejada",
                       onChanged: controller.setFilterText,
-                      height: 30,
-                      width: 328,
-                      horizontalMargin: 5,
+                      height: 30.h,
+                      width: 328.w,
+                      horizontalMargin: 5.w,
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 10.h),
                     ...controller.fruitItems
                         .where((e) => e.fruitItem.name.toLowerCase().contains(
                               controller.filterText.value.toLowerCase(),
@@ -42,8 +43,8 @@ class FruitStoreView extends GetView<FruitStoreController> {
               controller.canGoToShoppingCart
                   ? Positioned(
                       child: DefaultButton(
-                        width: 328,
-                        height: 40,
+                        width: 328.w,
+                        height: 40.w,
                         text: "Acessar o carrinho",
                         onPressed: () => handleGoToShoppingCart(),
                         isLoading: false,

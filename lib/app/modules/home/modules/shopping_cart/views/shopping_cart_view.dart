@@ -3,6 +3,7 @@ import 'package:ecommerce/app/modules/home/modules/shopping_cart/controllers/sho
 import 'package:ecommerce/app/shared/components/default_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ShoppingCartView extends GetView<ShoppingCartController> {
   const ShoppingCartView({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class ShoppingCartView extends GetView<ShoppingCartController> {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(16.w),
               child: Column(
                 children: [
                   if (controller.store.shoppingCartModel.item.isNotEmpty) ...[
@@ -24,7 +25,7 @@ class ShoppingCartView extends GetView<ShoppingCartController> {
                         .map(fruitModelToTile)
                         .toList(),
                   ] else ...[
-                    SizedBox(height: 200),
+                    SizedBox(height: 200.h),
                     Center(
                       child: Text(
                         "Carrinho vazio :(\nTente fazer algumas compras.",
@@ -40,15 +41,15 @@ class ShoppingCartView extends GetView<ShoppingCartController> {
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: DefaultButton(
-                    width: 320,
-                    height: 50,
+                    width: 320.w,
+                    height: 50.h,
                     text: "Finalizar compra",
                     onPressed: () => handlecheckout(context),
                     isLoading: false,
                   ),
                 ),
               ),
-            SizedBox(height: 10),
+            SizedBox(height: 10.h),
           ],
         ),
       ),

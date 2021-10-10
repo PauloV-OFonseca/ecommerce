@@ -1,5 +1,6 @@
 import 'package:ecommerce/app/shared/consts/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BoxTypeTile extends StatelessWidget {
   final String title;
@@ -15,28 +16,28 @@ class BoxTypeTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 65,
-      width: 328,
-      margin: EdgeInsets.all(10.0),
-      padding: EdgeInsets.only(left: 15, right: 15),
+      height: 65.h,
+      width: 328.w,
+      margin: EdgeInsets.all(10.w),
+      padding: EdgeInsets.only(left: 15.w, right: 15.w),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.blueGrey.shade300),
-        borderRadius: BorderRadius.all(Radius.circular(5)),
+        borderRadius: BorderRadius.all(Radius.circular(5.w)),
       ),
       child: Row(
         children: [
           Container(
-            width: 50,
-            height: 50,
+            width: 50.w,
+            height: 50.h,
             decoration: BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage(photo),
               ),
-              borderRadius: BorderRadius.all(Radius.circular(30)),
+              borderRadius: BorderRadius.all(Radius.circular(30.w)),
             ),
           ),
-          SizedBox(width: 20),
+          SizedBox(width: 20.w),
           Text(title, style: TextStyles.BOX_TYPE_TEXT_STYLE),
           Spacer(),
           GestureDetector(

@@ -3,6 +3,7 @@ import 'package:ecommerce/app/shared/components/default_circle_network_image.dar
 import 'package:ecommerce/app/shared/consts/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FruitTile extends StatelessWidget {
   final String name;
@@ -21,20 +22,20 @@ class FruitTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => Container(
-        height: 70,
-        width: 328,
-        margin: EdgeInsets.all(5),
-        padding: EdgeInsets.only(left: 15, right: 15),
+        height: 70.h,
+        width: 328.w,
+        margin: EdgeInsets.all(5.w),
+        padding: EdgeInsets.only(left: 15.w, right: 15.w),
         decoration: BoxDecoration(
           border: Border.all(color: Colors.blueGrey.shade300),
-          borderRadius: BorderRadius.all(Radius.circular(5)),
+          borderRadius: BorderRadius.all(Radius.circular(5.w)),
         ),
         child: Row(
           children: [
             DefaultCircleNetworkImage(photo: photo),
-            SizedBox(width: 20),
+            SizedBox(width: 20.w),
             Container(
-              width: 90,
+              width: 90.w,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,8 +50,8 @@ class FruitTile extends StatelessWidget {
             ),
             Spacer(),
             Container(
-              height: 30,
-              width: 30,
+              height: 30.w,
+              width: 30.w,
               margin: EdgeInsets.all(5),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.blueGrey.shade300),

@@ -4,6 +4,7 @@ import 'package:ecommerce/app/shared/consts/assets_paths.dart';
 import 'package:ecommerce/app/shared/consts/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
@@ -25,7 +26,7 @@ class HomeView extends GetView<HomeController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: 10),
+            SizedBox(height: 10.h),
             Center(
               child: Text(
                 "Seja bem vindo(a).\nEscolha uma das opções:",
@@ -33,7 +34,7 @@ class HomeView extends GetView<HomeController> {
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 30.h),
             BoxTypeTile(
               title: "Frutas",
               photo: AssetsPaths.FRUIT_BASKET,
