@@ -1,6 +1,7 @@
 import 'package:ecommerce/app/routes/app_pages.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -15,13 +16,25 @@ class App extends StatelessWidget {
       future: Firebase.initializeApp(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          return GetMaterialApp(
+          return ScreenUtilInit(
+            designSize: Size(360, 640),
+            builder: () => GestureDetector(
+              onTap: () {
+                FocusScopeNode currentFocus = FocusScope.of(context);
+                if (!currentFocus.hasPrimaryFocus &&
+                    currentFocus.focusedChild != null) {
+                  currentFocus.focusedChild?.unfocus();
+                }
+              },
+            child:
+          GetMaterialApp(
             theme: ThemeData(primarySwatch: Colors.purple),
             initialRoute: AppPages.INITIAL,
             getPages: AppPages.routes,
-          );
+          ),
+            ),
+            );
         }
-        // Otherwise, show something whilst waiting for initialization to complete
         return CircularProgressIndicator();
       },
     );
